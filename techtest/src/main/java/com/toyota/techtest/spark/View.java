@@ -16,6 +16,10 @@ public abstract class View {
         return viewName;
     }
 
+    public String getSource() {
+        return source;
+    }    
+
     public void create(String viewName, String[] columns, Optional<String> filter) {
         this.viewName = viewName;
         this.createView(this.source, viewName, Optional.of(columns), filter);
