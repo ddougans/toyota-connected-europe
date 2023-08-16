@@ -1,0 +1,4 @@
+Required files in here from https://datasets.imdbws.com/:
+
+title.basics.tsv.gz
+title.ratings.tsv.gz
