@@ -12,19 +12,19 @@ I know a code review isn't strictly a part of the process, so if you don't have 
 
 The main class is `com.toyota.techtest.Runner` so start there. Examining the classes in usage order in the `main` method will navigate the tree. The job only does Step 1 of the spec. Step 2 seemed to add joins and grouping but as I would have solved this in the same way - views and SQL - I thought I'd spare you/me the additional, but conceptually similar, code.
 
-I always try to use Spark SQL in preference to the API. While identical in Catalyst's representation, I find the declarative style clearer to read. It's also much harder to drop in a UDF without thinking, which requires serialisation and an external process.
+I always try to use Spark SQL in preference to the API. While identical in Catalyst's representation, I find the declarative style clearer to read. In code, it's also easier to drop in a UDF without thinking, which requires serialisation and an external process.
 
 The idea of a `com.toyota.techtest.spark.View` is to vary the selected columns and filters to create different views of the same underlying data file. `com.toyota.techtest.spark.imdb.VotesTest` demonstrates this. All the testing is 'representative'!
 
 # Build and run 
 
-\<PATH\> above 'toyota-connected-europe' will vary depending on where the code was checked-out.
+The \<PATH\> above 'toyota-connected-europe' will vary depending on where the code was checked-out.
 
 See the README in `src/test/resources/imdb` for the IMDB data files which must be copied there for the following to work. No point adding them to this repo.
 
 Run the 'tests' and build the jar using:
 
-`mvn package -f "/\<PATH\>/toyota-connected-europe/techtest/pom.xml"`
+`mvn package -f "/<PATH>/toyota-connected-europe/techtest/pom.xml"`
 
 then run the job, which just prints the results to the console:
 
